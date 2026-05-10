@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Audit Report - Prudence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --accent-blue: #3b82f6;
+            --bg-gray: #f1f5f9;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            background-color: var(--bg-gray); 
+            font-family: 'Lato', sans-serif; 
+            color: var(--text-dark); 
+            padding: 40px 0; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+
+        .slide-container {
+            width: 1280px; 
+            height: 720px; 
+            background-color: #ffffff; 
+            border-radius: 8px; 
+            padding: 60px; 
+            margin-bottom: 40px; 
+            position: relative; 
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide-container::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 10px;
+            background-color: var(--primary-blue);
+        }
+
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; color: var(--primary-blue); }
+        h1 { font-size: 64px; line-height: 1.1; margin-bottom: 20px; }
+        h2 { font-size: 36px; margin-bottom: 30px; border-bottom: 2px solid var(--border); padding-bottom: 15px; }
+
+        .subtitle { font-size: 22px; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; width: 100%; }
+
+        .image-frame {
+            border: 1px solid var(--border); 
+            border-radius: 12px; 
+            height: 400px; 
+            background: #f8fafc;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-frame img { width: 100%; height: 100%; object-fit: contain; }
+
+        .tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; }
+        .tile { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 30px; text-align: center; }
+        .tile i { font-size: 40px; color: var(--accent-blue); margin-bottom: 20px; }
+
+        .badge { display: inline-block; padding: 6px 15px; border-radius: 4px; font-weight: 700; color: white; margin-bottom: 15px; }
+        .badge-med { background: #f59e0b; }
+        .badge-low { background: #3b82f6; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background: var(--primary-blue); color: white; padding: 15px; text-align: left; }
+        td { padding: 15px; border-bottom: 1px solid var(--border); }
+
+        .footer { position: absolute; bottom: 30px; right: 60px; color: var(--text-light); font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+        <p class="subtitle">Security Audit Portfolio</p>
+        <h1>Vulnerability Assessment<br>Report: Task 01</h1>
+        <p style="font-size: 20px;">Lead Auditor: <strong>Prudence</strong></p>
+        <p>Future Interns Cybersecurity Program | May 2026</p>
+        <div class="footer">Slide 01</div>
+    </div>
+
+    <div class="slide-container">
+        <h2>02. Project Objective</h2>
+        <div class="grid-2">
+            <div>
+                <p style="font-size: 20px; margin-bottom: 20px;">The goal of this assessment was to perform a black-box security audit on the OWASP Juice Shop environment.</p>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check-circle" style="color:var(--accent-blue)"></i> Map the external attack surface.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check-circle" style="color:var(--accent-blue)"></i> Identify critical header misconfigurations.</li>
+                </ul>
+            </div>
+            <div class="image-frame">
+                <img src="Owasp-Juice-Shop.png" alt="Owasp Juice Shop">
+            </div>
+        </div>
+        <div class="footer">Slide 02</div>
+    </div>
+
+    <div class="slide-container">
+        <h2>03. Technical Methodology</h2>
+        <div class="tile-grid">
+            <div class="tile">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <h3>Reconnaissance</h3>
+                <p>Nmap port scanning to identify open services and backend ports.</p>
+            </div>
+            <div class="tile">
+                <i class="fa-solid fa-bug"></i>
+                <h3>DAST Scanning</h3>
+                <p>Automated crawling and scanning using OWASP ZAP.</p>
+            </div>
+            <div class="tile">
+                <i class="fa-solid fa-file-code"></i>
+                <h3>Manual Verification</h3>
+                <p>Verifying findings using Browser DevTools and Response Headers.</p>
+            </div>
+        </div>
+        <div class="footer">Slide 03</div>
+    </div>
+
+    <div class="slide-container">
+        <h2>04. Phase 1: Network Reconnaissance</h2>
+        <div class="grid-2">
+            <div>
+                <h3>Nmap Results</h3>
+                <p>Initial scans identified active ports and service banners.</p>
+                <p><strong>Port 3000:</strong> Identified as the main Node.js/Express application listener.</p>
+                <p><strong>Port 80/443:</strong> Standard web traffic ports active.</p>
+            </div>
+            <div class="image-frame">
+                <img src="nmap.png" alt="Nmap Results">
+            </div>
+        </div>
+        <div class="footer">Slide 04</div>
+    </div>
+
+    <div class="slide-container">
+        <h2>05. Phase 2: Automated Analysis</h2>
+        <div class="grid-2">
+            <div class="image-frame">
+                <img src="zap_scan.png" alt="OWASP ZAP Progress">
+            </div>
+            <div>
+                <h3>OWASP ZAP Workflow</h3>
+                <p>The DAST tool successfully spidered the application tree, mapping over 20 unique endpoints including APIs and static assets.</p>
+            </div>
+        </div>
+        <div class="footer">Slide 05</div>
+    </div>
+
+    <div class="slide-container">
+        <h2>06. Finding: Missing CSP Header</h2>
+        <div class="grid-2">
+            <div>
+                <div class="badge badge-med">Medium Severity</div>
+                <h3>Observation</h3>
+                <p>The "Content-Security-Policy" header is not implemented. This allows the browser to execute any script, significantly increasing XSS risk.</p>
+                <h3 style="margin-top: 20px;">Remediation</h3>
+                <p>Define a strict CSP whitelist to prevent unauthorized script execution.</p>
+            </div>
+            <div class="image-frame">
+                <img src="csp_alert.png" alt="CSP Alert">
+            </div>
+        </div>
+        <div class="footer">Slide 06</div>
+    </div>
+
+    <div class="slide-container">
+        <h2>07. Finding: Tech Stack Leakage</h2>
+        <div class="grid-2">
+            <div class="image-frame">
+                <img src="headers.png" alt="Header Disclosure">
+            </div>
+            <div>
+                <div class="badge badge-low">Low / Informational</div>
+                <h3>Infrastructure Fingerprinting</h3>
+                <p>Response headers explicitly disclose the use of <strong>Heroku</strong> and <strong>Express</strong>.</p>
+                <p>This allows attackers to focus on version-specific exploits (CVEs).</p>
+            </div>
+        </div>
+        <div class="footer">Slide 07</div>
+    </div>
+
+    <div class="slide-container">
+        <h2>08. Finding: Anti-Clickjacking</h2>
+        <div class="grid-2">
+            <div>
+                <h3>X-Frame-Options Missing</h3>
+                <p>The application can be embedded in an iFrame on malicious sites.</p>
+                <p><strong>Impact:</strong> Attackers can trick users into performing unintended actions via UI redressing.</p>
+            </div>
+            <div class="image-frame">
+                <i class="fa-solid fa-window-restore" style="font-size: 100px; color: #e2e8f0;"></i>
+            </div>
+        </div>
+        <div class="footer">Slide 08</div>
+    </div>
+
+    <div class="slide-container">
+        <h2>09. Vulnerability Severity Matrix</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Threat Category</th>
+                    <th>Vulnerability</th>
+                    <th>Severity</th>
+                    <th>Priority</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Injection</td>
+                    <td>Missing CSP Header</td>
+                    <td><span style="color: #f59e0b; font-weight: bold;">Medium</span></td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>Broken Auth</td>
+                    <td>Insecure Cookie Flags</td>
+                    <td><span style="color: #f59e0b; font-weight: bold;">Medium</span></td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td>Reconnaissance</td>
+                    <td>Server Banner Leak</td>
+                    <td><span style="color: #3b82f6; font-weight: bold;">Low</span></td>
+                    <td>Low</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">Slide 09</div>
+    </div>
+
+    <div class="slide-container">
+        <h2>10. Remediation Roadmap</h2>
+        <div class="tile-grid">
+            <div class="tile">
+                <h3 style="color: var(--accent-blue);">Immediate</h3>
+                <p>Hardening HTTP headers (CSP, HSTS, X-Frame).</p>
+            </div>
+            <div class="tile">
+                <h3 style="color: var(--accent-blue);">Short Term</h3>
+                <p>Suppressing server identity headers across the stack.</p>
+            </div>
+            <div class="tile">
+                <h3 style="color: var(--accent-blue);">Ongoing</h3>
+                <p>Implementing regular DAST scans into the CI/CD pipeline.</p>
+            </div>
+        </div>
+        <div class="footer">Slide 10</div>
+    </div>
+
+    <div class="slide-container">
+        <h2>11. Executive Conclusion</h2>
+        <p style="font-size: 24px; line-height: 1.8;">While no "Critical" exploits were found, the application lacks <strong>Defense-in-Depth</strong>. By securing the identified headers and obfuscating the infrastructure, the overall security posture will improve significantly.</p>
+        <div class="footer">Slide 11</div>
+    </div>
+
+    <div class="slide-container" style="text-align: center;">
+        <h1 style="color: var(--accent-blue);">Assessment Finalized</h1>
+        <p class="subtitle">Thank you for your review</p>
+        <div style="margin-top: 50px; color: var(--text-light);">
+            <p><strong>Assessor:</strong> Prudence</p>
+            <p><strong>Contact:</strong> nthenyaprudence9@gmail.com</p>
+        </div>
+        <div class="footer">Slide 12</div>
+    </div>
+
+</body>
+</html>
